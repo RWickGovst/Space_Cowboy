@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- materialize css -->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
     <title>Space Cowboy</title>
 </head>
 
@@ -20,25 +22,24 @@
                     <input id="first_name" type="text" class="validate">
                     <label for="first_name">First name</label>
                 </div>
-            
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="last_name" type="text" class="validate">
-                    <label for="last_name">Last name</label>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">Last name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="age" type="text" class="validate">
+                        <label for="age">Age</label>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="age" type="text" class="validate">
-                    <label for="age">Age</label>
-                </div>
-            </div>
-
-
             <div class="row">
                 <!-- Dropdown Trigger -->
                 <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Destination</a>
-
+    
                 <!-- Dropdown Structure -->
                 <ul id='dropdown1' class='dropdown-content'>
                     <li><a href="#destination">Mercury</a></li>
@@ -49,17 +50,21 @@
                     <li><a href="#destination">Uranus</a></li>
                     <li><a href="#destination">Neptune</a></li>
                     <li><a href="#destination">Pluto</a></li>
-
+    
                 </ul>
             </div>
-
+           
+        </form>
+        
     </div>
-    </form>
-    </div>
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- jquery link -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- materialize js -->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <!-- custom js -->
+    <script src="logic.js"></script>
     <script>
-
+        // $('.dropdown-trigger').dropdown();
     </script>
 </body>
 
