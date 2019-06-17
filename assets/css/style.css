@@ -1,0 +1,29 @@
+/* WHOLE PAGE */
+body {
+  font-family: 'Michroma', sans-serif;
+
+}
+
+/* HEADER STYLE */
+h3 {
+    font-family: 'Michroma', sans-serif;
+    font-weight: bold;
+    color: white;
+}
+.card .card-title {
+  font-size: 18px;
+}
+
+/* FIXED FULL SCREEN IMAGE */
+html {
+  background: url("../images/test.jpg") no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+}
+
+#opacity-test{
+  background-color: rgba(27, 43, 64, 0.4);
+}
+
+  
