@@ -1,6 +1,8 @@
 /* WHOLE PAGE */
 body {
   font-family: 'Michroma', sans-serif;
+  overflow:auto;
+
 
 }
 /* HEADER STYLE */
@@ -13,16 +15,24 @@ h3 {
   font-size: 18px;
 }
 
+input{
+  color: white;
+}
+
 /* FIXED FULL SCREEN IMAGE */
 html {
   background: url("../images/test.jpg") no-repeat center center fixed;
   background-size: cover;
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 #opacity-test{
   background-color: rgba(27, 43, 64, 0.4);
+}
+
+#input-feilds{
+  /* overflow:auto; */
 }
 
   
