@@ -22,17 +22,15 @@ firebase.initializeApp(firebaseConfig);
 
 // LOAD PAGE FUNCTION
 // ===============================================================
-<<<<<<< HEAD
 
 $( document ).ready(function() {
-=======
->>>>>>> 0aa9556185d8e0cd721ed444aeaa114baa697dab
     // console.log( "ready!" );
     $('select').formSelect();
     
     // what's this? *********************************
     $('input#input_text, textarea#textarea2').characterCounter();
 
+});
 
 // VARIABLES
 // ===============================================================
@@ -76,7 +74,7 @@ $("#submit").on("click", function(event){
 
 });
 
-});
+
 
 // Nasa API connection
 function displayPlanetImage() {
