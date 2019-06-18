@@ -15,7 +15,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 // create variable to reference the data base
-var database=firebase.database();
+// var database=firebase.database();
 
 
 // LOAD PAGE FUNCTION
@@ -60,8 +60,6 @@ $("#submit").on("click", function(event){
     console.log(age);
     console.log(desination);
     console.log(spaceCraft);
-
-
 
 });
 
