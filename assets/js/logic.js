@@ -38,7 +38,6 @@ var desination;
 var spaceCraft;
 
 
-
 // FUNCTIONS
 // ===============================================================
 
@@ -62,8 +61,6 @@ $("#submit").on("click", function(event){
     console.log(spaceCraft);
 
 });
-
-
 
 // RENDER DROP DOWN
 // ===============================================================
