@@ -15,7 +15,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 // create variable to reference the data base
-// var database=firebase.database();
+// var database = firebase.database();
 
 
 // LOAD PAGE FUNCTION
@@ -42,11 +42,12 @@ var spaceCraft;
 // FUNCTIONS
 // ===============================================================
 
-
+// click submit button
 $("#submit").on("click", function(event){
     event.preventDefault();
     console.log("clicked");
 
+    // reassigning variables with our user input
     firstName = $("#first_name").val().trim();
     lastName = $("#last_name").val().trim();
     weight = $("#weight").val().trim(); 
@@ -60,6 +61,11 @@ $("#submit").on("click", function(event){
     console.log(age);
     console.log(desination);
     console.log(spaceCraft);
+
+    if(desination === "mars"){
+        console.log("we're going to mars")
+        $("html").css('background', 'url("assets/images/mars.jpg") no-repeat center center fixed');
+    }
 
 });
 
