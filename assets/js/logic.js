@@ -17,17 +17,20 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 // create variable to reference the data base
-// var database=firebase.database();
+// var database = firebase.database();
 
 
 // LOAD PAGE FUNCTION
 // ===============================================================
+
+$( document ).ready(function() {
     // console.log( "ready!" );
     $('select').formSelect();
     
     // what's this? *********************************
     $('input#input_text, textarea#textarea2').characterCounter();
 
+});
 
 // VARIABLES
 // ===============================================================
@@ -43,11 +46,12 @@ var spaceCraft;
 // FUNCTIONS
 // ===============================================================
 
-
+// click submit button
 $("#submit").on("click", function(event){
     event.preventDefault();
     console.log("clicked");
 
+    // reassigning variables with our user input
     firstName = $("#first_name").val().trim();
     lastName = $("#last_name").val().trim();
     weight = $("#weight").val().trim(); 
@@ -55,14 +59,22 @@ $("#submit").on("click", function(event){
     desination = $("#planet").children("option:selected").val();
     spaceCraft = $("#craft").children("option:selected").val();
 
-    console.log(firstName);
-    console.log(lastName);
-    console.log(weight);
-    console.log(age);
+    // console.log(firstName);
+    // console.log(lastName);
+    // console.log(weight);
+    // console.log(age);
     console.log(desination);
     console.log(spaceCraft);
 
+    // change background to destination
+    if(desination === "mars"){
+        console.log("we're going to mars")
+        $("html").css('background', 'url("assets/images/mars.jpg") no-repeat center center fixed');
+    }
+
 });
+
+
 
 // Nasa API connection
 function displayPlanetImage() {
