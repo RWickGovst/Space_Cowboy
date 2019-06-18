@@ -88,7 +88,7 @@ function displayPlanetImage() {
 
         // for (var i = 0; i < response.data.length; i++)
 
-        $("body").append("<img src=" + response.collection.items[0].links[0].href + ">")
+        $("body").append("<img src=" + response.collection.items[76].links[0].href + ">")
         console.log(response.collection.items[0].links[0].href);
 
     });
