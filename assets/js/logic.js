@@ -22,7 +22,7 @@ firebase.initializeApp(firebaseConfig);
 // ===============================================================
 
 $( document ).ready(function() {
-    console.log( "ready!" );
+    // console.log( "ready!" );
     $('select').formSelect();
     $('input#input_text, textarea#textarea2').characterCounter();
 });
@@ -55,13 +55,14 @@ $("#submit").on("click", function(event){
     desination = $("#planet").children("option:selected").val();
     spaceCraft = $("#craft").children("option:selected").val();
 
-    console.log(firstName);
-    console.log(lastName);
-    console.log(weight);
-    console.log(age);
+    // console.log(firstName);
+    // console.log(lastName);
+    // console.log(weight);
+    // console.log(age);
     console.log(desination);
     console.log(spaceCraft);
 
+    // change background to destination
     if(desination === "mars"){
         console.log("we're going to mars")
         $("html").css('background', 'url("assets/images/mars.jpg") no-repeat center center fixed');
@@ -69,10 +70,3 @@ $("#submit").on("click", function(event){
 
 });
 
-
-
-// RENDER DROP DOWN
-// ===============================================================
-
-// $('.dropdown-trigger').dropdown();
-// var planets = [mercury, venus, mars, jupiter, saturn, uranus, neptune, pluto];
