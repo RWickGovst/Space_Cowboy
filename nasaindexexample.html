@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>nasa images</title>
+    <style type="text/css">
+        button,
+        div,
+        form,
+        input {
+            margin: 20px;
+            color: blue;
+            border: 3px solid;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 style="margin-left: 20px"> Nasa Gifs</h1>
+
+
+        <div id="buttons-view" style="background-color: blue"></div>
+
+        <form id="ship-form" style="background-color: red">
+            <label for="ship-input" style="color:black "> Add a Planet:</label>
+            <input type="text" id="ship-input">
+            <br>
+
+
+            <input id="add-ship" type="submit" value="Add a Planets">
+        </form>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+
+            var planets = ["Mars", "Jupiter ", "Saturn", "Pluto"]
+
+            function displayShipInfo() {
+                var planet = $(this).attr("data-name");
+                console.log(planet)
+
+                var queryURL = "https://images-api.nasa.gov/search?q=" + planet;
+
+                // Ip2unDZzier4N1q7RpLlfMSHLWLoYDimT5hsxIzc
+                console.log(queryURL)
+
+                $.ajax({
+                    url: queryURL,
+                    method: "GET"
+                }).then(function (response) {
+                    console.log("planet requested")
+                    console.log(response)
+                    // console.log(response.collection)
+                    console.log(response.collection.items[0].links[0].href)
+
+
+                    // for (var i = 0; i < response.data.length; i++)
+
+                    $("body").append("<img src=" + response.collection.href + ">")
+
+
+                });
+
+            }
+
+            function renderButtons() {
+
+                $("#buttons-view").empty();
+
+                for (var i = 0; i < planets.length; i++) {
+
+                    var a = $("<button>");
+                    a.addClass("ship-btn");
+                    a.attr("data-name", planets[i]);
+                    a.text(planets[i]);
+                    $("#buttons-view").append(a);
+
+
+                }
+            }
+
+            $("#add-ship").on("click", function (event) {
+                event.preventDefault();
+                var ship = $("#ship-input").val().trim();
+                planets.push(ship);
+                renderButtons();
+            });
+
+            $(document).on("click", ".ship-btn", displayShipInfo);
+            //console.log("3 message for me");
+            renderButtons();
+
+        </script>
+    </div>
+</body>
+
+</html>

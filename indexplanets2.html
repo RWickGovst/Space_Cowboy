@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Navy Ships</title>
+    <style type="text/css">
+        button,
+        div,
+        form,
+        input {
+            margin: 20px;
+            color: blue;
+            border: 3px solid;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 style="margin-left: 20px"> Planet Gifs</h1>
+
+
+        <div id="buttons-view" style="background-color: blue"></div>
+
+        <form id="ship-form" style="background-color: red">
+            <label for="ship-input" style="color:black "> Add a Ship:</label>
+            <input type="text" id="ship-input">
+            <br>
+
+
+            <input id="add-ship" type="submit" value="Add a Ship">
+        </form>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+
+            var ships = ["Mars Planet", "Jupiter Planet", "Pluto Planet", "Saturn Planet"]
+
+            function displayShipInfo() {
+                var ship = $(this).attr("data-name");
+                console.log(this)
+
+                // var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + ship + "&apikey=3Mvo3X8SuUVxuK8Yrj0WQcaR0K94JzMh&limit=5";
+
+                var queryURL = "https://api.giphy.com/v1/gifs/search?apikey=I5jiUCWL9lR5Qoq5k7NRf59EnCwtxpn0&q=" + ship;
+
+
+                $.ajax({
+                    url: queryURL,
+                    method: "GET"
+                }).then(function (response) {
+                    console.log(response)
+
+                    for (var i = 0; i < response.data.length; i++)
+
+                        $("body").append("<img src=" + response.data[i].images.downsized.url + ">")
+
+
+                });
+
+            }
+
+            function renderButtons() {
+
+                $("#buttons-view").empty();
+
+                for (var i = 0; i < ships.length; i++) {
+
+                    var a = $("<button>");
+                    a.addClass("ship-btn");
+                    a.attr("data-name", ships[i]);
+                    a.text(ships[i]);
+                    $("#buttons-view").append(a);
+                }
+            }
+
+
+            //  on click event for a new button
+
+            $("#add-ship").on("click", function (event) {
+                event.preventDefault();
+                var ship = $("#ship-input").val().trim();
+                ships.push(ship);
+                renderButtons();
+            });
+
+            $(document).on("click", ".ship-btn", displayShipInfo);
+            //console.log("3 message for me");
+            renderButtons();
+        </script>
+    </div>
+</body>
+
+</html>
