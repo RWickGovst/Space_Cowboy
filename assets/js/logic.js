@@ -1,6 +1,8 @@
-// INITALIZE FIREBASE
-// ===============================================================
 
+$( document ).ready(function() {
+
+    // INITALIZE FIREBASE
+// ===============================================================
 var firebaseConfig = {
     apiKey: "AIzaSyD9ffjp1EACemKsaZAGQzujpsb-8nMuo2M",
     authDomain: "space-cowboys-c0c9a.firebaseapp.com",
@@ -20,12 +22,17 @@ firebase.initializeApp(firebaseConfig);
 
 // LOAD PAGE FUNCTION
 // ===============================================================
+<<<<<<< HEAD
 
 $( document ).ready(function() {
+=======
+>>>>>>> 0aa9556185d8e0cd721ed444aeaa114baa697dab
     // console.log( "ready!" );
     $('select').formSelect();
+    
+    // what's this? *********************************
     $('input#input_text, textarea#textarea2').characterCounter();
-});
+
 
 // VARIABLES
 // ===============================================================
@@ -36,7 +43,6 @@ var weight;
 var age;
 var desination;
 var spaceCraft;
-
 
 
 // FUNCTIONS
@@ -70,3 +76,43 @@ $("#submit").on("click", function(event){
 
 });
 
+});
+
+// Nasa API connection
+function displayPlanetImage() {
+    var destination = $(this).attr("data-name");
+    // console.log(destination)
+    
+    // Mars image
+    // response.collection.items[76].links[0].href + ">"
+    var nasaQuery = "https://images-api.nasa.gov/search?q=" + "Saturn";
+
+    // Ip2unDZzier4N1q7RpLlfMSHLWLoYDimT5hsxIzc
+    // console.log(queryURL)
+
+    $.ajax({
+        url: nasaQuery,
+        method: "GET"
+    }).then(function (response) {
+        // console.log("planet requested")
+        // console.log(response)
+        // console.log(response.collection)
+        // console.log(response.collection.href)
+
+
+        // for (var i = 0; i < response.data.length; i++)
+
+        $("body").append("<img src=" + response.collection.items[76].links[0].href + ">")
+        console.log(response.collection.items[0].links[0].href);
+
+    });
+
+}
+displayPlanetImage();
+
+});
+// RENDER DROP DOWN
+// ===============================================================
+
+// $('.dropdown-trigger').dropdown();
+// var planets = [mercury, venus, mars, jupiter, saturn, uranus, neptune, pluto];
