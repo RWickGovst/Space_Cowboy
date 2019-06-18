@@ -14,6 +14,10 @@ h3 {
   font-size: 18px;
 }
 
+input{
+  color: white;
+}
+
 /* FIXED FULL SCREEN IMAGE */
 html {
   background: url("../images/test.jpg") no-repeat center center fixed;
@@ -24,6 +28,10 @@ html {
 
 #opacity-test{
   background-color: rgba(27, 43, 64, 0.4);
+}
+
+#input-feilds{
+  overflow:auto;
 }
 
   
