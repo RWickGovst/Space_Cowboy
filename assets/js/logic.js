@@ -28,12 +28,15 @@ console.log(snapshot.val());
   });
 // LOAD PAGE FUNCTION
 // ===============================================================
+
+$( document ).ready(function() {
     // console.log( "ready!" );
     $('select').formSelect();
     
     // what's this? *********************************
     $('input#input_text, textarea#textarea2').characterCounter();
 
+});
 
 // VARIABLES
 // ===============================================================
@@ -49,11 +52,12 @@ var spaceCraft;
 // FUNCTIONS
 // ===============================================================
 
-
+// click submit button
 $("#submit").on("click", function(event){
     event.preventDefault();
     console.log("clicked");
 
+    // reassigning variables with our user input
     firstName = $("#first_name").val().trim();
     lastName = $("#last_name").val().trim();
     weight = $("#weight").val().trim(); 
@@ -61,16 +65,23 @@ $("#submit").on("click", function(event){
     destination = $("#planet").children("option:selected").val();
     spaceCraft = $("#craft").children("option:selected").val();
 
-    console.log(firstName);
-    console.log(lastName);
-    console.log(weight);
-    console.log(age);
+    // console.log(firstName);
+    // console.log(lastName);
+    // console.log(weight);
+    // console.log(age);
     // console.log(destination);
-    console.log(spaceCraft);
+    // console.log(spaceCraft);
 
+    // change background to destination
+    if(destination === "mars"){
+        console.log("we're going to mars")
+        $("html").css('background', 'url("assets/images/mars.jpg") no-repeat center center fixed');
+    }
     displayPlanetImage()
 
 });
+
+
 
 // Nasa API connection
 function displayPlanetImage() {
@@ -98,7 +109,7 @@ function displayPlanetImage() {
 
         // for (var i = 0; i < response.data.length; i++)
 
-        $("body").append("<img src=" + response.collection.items[0].links[0].href + ">")
+        $("body").append("<img src=" + response.collection.items[76].links[0].href + ">")
         console.log(response.collection.items[0].links[0].href);
 
     });

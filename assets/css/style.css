@@ -21,7 +21,8 @@ input{
 
 /* FIXED FULL SCREEN IMAGE */
 html {
-  background: url("../images/test.jpg") no-repeat center center fixed;
+  background: url("../images/earthorbit.jpg") no-repeat center center fixed;
+  /* background-color: blue; */
   background-size: cover;
   height: 100%;
   /* overflow: hidden; */
