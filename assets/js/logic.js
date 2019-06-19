@@ -83,7 +83,7 @@ function displayPlanetImage() {
     
     // Mars image
     // response.collection.items[76].links[0].href + ">"
-    var nasaQuery = "https://images-api.nasa.gov/search?q=" + "Saturn";
+    var nasaQuery = "https://images-api.nasa.gov/search?q=" + destination;
 
     // Ip2unDZzier4N1q7RpLlfMSHLWLoYDimT5hsxIzc
     // console.log(queryURL)
