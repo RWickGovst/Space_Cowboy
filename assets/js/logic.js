@@ -11,15 +11,21 @@ var firebaseConfig = {
     storageBucket: "space-cowboys-c0c9a.appspot.com",
     messagingSenderId: "720166346595",
     appId: "1:720166346595:web:db2ac1c989c88325"
-};
+  };
   
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+// event.preventDefault();
 // create variable to reference the data base
-// var database=firebase.database();
+var database = firebase.database();
 
+database.ref().on("value", function(snapshot) {
+console.log(snapshot.val());
 
+}, function(errorObject) {
+    console.log("The read failed: " + errorObject.code);
+  });
 // LOAD PAGE FUNCTION
 // ===============================================================
     // console.log( "ready!" );
@@ -36,7 +42,7 @@ var firstName;
 var lastName;
 var weight; 
 var age;
-var desination;
+var destination;
 var spaceCraft;
 
 
@@ -52,29 +58,33 @@ $("#submit").on("click", function(event){
     lastName = $("#last_name").val().trim();
     weight = $("#weight").val().trim(); 
     age = $("#age").val().trim();
-    desination = $("#planet").children("option:selected").val();
+    destination = $("#planet").children("option:selected").val();
     spaceCraft = $("#craft").children("option:selected").val();
 
     console.log(firstName);
     console.log(lastName);
     console.log(weight);
     console.log(age);
-    console.log(desination);
+    // console.log(destination);
     console.log(spaceCraft);
+
+    displayPlanetImage()
 
 });
 
 // Nasa API connection
 function displayPlanetImage() {
-    var destination = $(this).attr("data-name");
-    // console.log(destination)
+    // destination = $("#planet option:selected").val();
+    console.log(destination);
     
     // Mars image
     // response.collection.items[76].links[0].href + ">"
-    var nasaQuery = "https://images-api.nasa.gov/search?q=" + "Saturn";
+    var nasaQuery = "https://images-api.nasa.gov/search?q=" + destination;
 
     // Ip2unDZzier4N1q7RpLlfMSHLWLoYDimT5hsxIzc
     // console.log(queryURL)
+
+    console.log(nasaQuery)
 
     $.ajax({
         url: nasaQuery,
@@ -94,7 +104,6 @@ function displayPlanetImage() {
     });
 
 }
-displayPlanetImage();
 
 });
 // RENDER DROP DOWN
