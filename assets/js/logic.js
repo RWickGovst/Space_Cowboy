@@ -34,7 +34,8 @@ $( document ).ready(function() {
     $('select').formSelect();
     
     // what's this? *********************************
-    $('input#input_text, textarea#textarea2').characterCounter();
+    // $('input#input_text, textarea#textarea2').characterCounter();
+    $("#data-output").hide();
 
 });
 
@@ -77,6 +78,8 @@ $("#submit").on("click", function(event){
         console.log("we're going to mars")
         $("html").css('background', 'url("assets/images/mars.jpg") no-repeat center center fixed');
     }
+    $("#input-feilds").hide();
+    $("#data-output").show();
     displayPlanetImage()
 
 });
@@ -109,8 +112,8 @@ function displayPlanetImage() {
 
         // for (var i = 0; i < response.data.length; i++)
 
-        $("body").append("<img src=" + response.collection.items[76].links[0].href + ">")
-        console.log(response.collection.items[0].links[0].href);
+        $("#data-output").append("<img src=" + response.collection.items[76].links[0].href + ">")
+        // console.log(response.collection.items[0].links[0].href);
 
     });
 
