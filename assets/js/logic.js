@@ -11,15 +11,21 @@ var firebaseConfig = {
     storageBucket: "space-cowboys-c0c9a.appspot.com",
     messagingSenderId: "720166346595",
     appId: "1:720166346595:web:db2ac1c989c88325"
-};
+  };
   
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+// event.preventDefault();
 // create variable to reference the data base
-// var database = firebase.database();
+var database = firebase.database();
 
+database.ref().on("value", function(snapshot) {
+console.log(snapshot.val());
 
+}, function(errorObject) {
+    console.log("The read failed: " + errorObject.code);
+  });
 // LOAD PAGE FUNCTION
 // ===============================================================
 
@@ -40,7 +46,7 @@ var firstName;
 var lastName;
 var weight; 
 var age;
-var desination;
+var destination;
 var spaceCraft;
 
 
@@ -57,23 +63,24 @@ $("#submit").on("click", function(event){
     lastName = $("#last_name").val().trim();
     weight = $("#weight").val().trim(); 
     age = $("#age").val().trim();
-    desination = $("#planet").children("option:selected").val();
+    destination = $("#planet").children("option:selected").val();
     spaceCraft = $("#craft").children("option:selected").val();
 
     // console.log(firstName);
     // console.log(lastName);
     // console.log(weight);
     // console.log(age);
-    console.log(desination);
-    console.log(spaceCraft);
+    // console.log(destination);
+    // console.log(spaceCraft);
 
     // change background to destination
-    if(desination === "mars"){
+    if(destination === "mars"){
         console.log("we're going to mars")
         $("html").css('background', 'url("assets/images/mars.jpg") no-repeat center center fixed');
     }
     $("#input-feilds").hide();
     $("#data-output").show();
+    displayPlanetImage()
 
 });
 
@@ -81,15 +88,17 @@ $("#submit").on("click", function(event){
 
 // Nasa API connection
 function displayPlanetImage() {
-    var destination = $(this).attr("data-name");
-    // console.log(destination)
+    // destination = $("#planet option:selected").val();
+    console.log(destination);
     
     // Mars image
     // response.collection.items[76].links[0].href + ">"
-    var nasaQuery = "https://images-api.nasa.gov/search?q=" + "Saturn";
+    var nasaQuery = "https://images-api.nasa.gov/search?q=" + destination;
 
     // Ip2unDZzier4N1q7RpLlfMSHLWLoYDimT5hsxIzc
     // console.log(queryURL)
+
+    console.log(nasaQuery)
 
     $.ajax({
         url: nasaQuery,
@@ -103,13 +112,12 @@ function displayPlanetImage() {
 
         // for (var i = 0; i < response.data.length; i++)
 
-        // $("body").append("<img src=" + response.collection.items[76].links[0].href + ">")
+        $("#data-output").append("<img src=" + response.collection.items[76].links[0].href + ">")
         // console.log(response.collection.items[0].links[0].href);
 
     });
 
 }
-// displayPlanetImage();
 
 });
 // RENDER DROP DOWN
