@@ -65,7 +65,9 @@ var span = document.getElementsByClassName("close")[0];
 // click submit button
 $("#submit").on("click", function(event){
 event.preventDefault();
-console.log("clicked");
+// $(".header").hide();
+$(".headerDiv").empty();
+// console.log("clicked");
 
 // reassigning variables with our user input
 firstName = $("#first_name").val().trim();
@@ -75,7 +77,9 @@ age = $("#age").val().trim();
 destination = $("#planet").children("option:selected").val();
 spaceCraft = $("#craft").children("option:selected").val();
 planetChoice = $("#planet").children("option:selected").val();
-
+var planetName = destination.toUpperCase();
+planetName = $("<h3>").text(planetName);
+$(".headerDiv").html(planetName);
 // console.log(firstName);
 // console.log(lastName);
 // console.log(weight);
@@ -113,7 +117,7 @@ switch (destination) {
 
     case "sun":
 
-        $("html").css('background', 'url("assets/images/sunimage.jpg") no-repeat center center fixed');
+        $("html").css('background', 'url("assets/images/sun-1080p.jpg") no-repeat center center fixed');
         $("#title-of-planet").text("Sun").css('font-size', '20px');
         break;
 
@@ -177,7 +181,7 @@ function displayPlanetInfo() {
 database.ref().on("value", function(snapshot) {
     var fbData = snapshot.val()
 
-    console.log("chosen planet", planetChoice)
+    // console.log("chosen planet", planetChoice)
 if (planetChoice == "jupiter"){
     displayedPlanet = {
         distance: fbData.destination.jupiter.distance,
@@ -242,18 +246,19 @@ else if (planetChoice == "venus"){
         type: fbData.destination.venus.type
     }
 }
-console.log ("displayed planet data", fbData, "planet choice", planetChoice)
-console.log(displayedPlanet);
+// console.log ("displayed planet data", fbData, "planet choice", planetChoice)
+// console.log(displayedPlanet);
 $("#title-of-planet").html(
-    "Your destination is " + planetChoice + ". It is " + displayedPlanet.distance + " from Earth."
-    + " It is " + displayedPlanet.size + " times larger than the Earth." + " It is a " + displayedPlanet.type + " planet."
+    "Your destination is " + planetChoice + ". It is " + displayedPlanet.distance + " AU's from Earth."
+    + " It is " + displayedPlanet.size + " times the size of the Earth." + " It is a " + displayedPlanet.type + " planet."
 )
+$("#title-of-planet").prepend("Have a super trip " + firstName + "! ");
 });}
 
 // Nasa API connection
 function displayPlanetImage() {
     // destination = $("#planet option:selected").val();
-    console.log(destination);
+    // console.log(destination);
 
     // Mars image
     // response.collection.items[76].links[0].href + ">"
@@ -262,7 +267,7 @@ function displayPlanetImage() {
     // Ip2unDZzier4N1q7RpLlfMSHLWLoYDimT5hsxIzc
     // console.log(queryURL)
 
-    console.log(nasaQuery)
+    // console.log(nasaQuery)
 
     $.ajax({
         url: nasaQuery,

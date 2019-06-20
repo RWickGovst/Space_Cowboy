@@ -32,11 +32,12 @@ html {
   background-color: rgba(27, 43, 64, 0.4);
 }
 
-#input-feilds{
+/* #input-feilds{ */
   /* overflow:auto; */
-}
+/* } */
 
 #newimage{
+  margin-top: 20px;
   height: 100%;
   width: 100%;
 }
